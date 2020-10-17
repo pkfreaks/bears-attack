@@ -18,7 +18,22 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-        MoveTowardsPosition();
+        if (IsMoving())
+        {
+            MoveTowardsPosition();
+        }
+        else
+        {
+            CaptureControls();
+        }
+    }
+
+    private bool IsMoving() { return (Vector2)transform.position != position; }
+
+    private void MoveTowardsPosition() { transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime); }
+
+    private void CaptureControls()
+    {
         if (ShouldMoveUp())
         {
             MoveUp();
@@ -28,8 +43,6 @@ public class Player : MonoBehaviour
             MoveDown();
         }
     }
-
-    private void MoveTowardsPosition() { transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime); }
 
     private bool ShouldMoveUp() { return Input.GetKeyDown(KeyCode.UpArrow) && positionIndex < 1; }
 
