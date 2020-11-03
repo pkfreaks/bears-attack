@@ -33,10 +33,6 @@ public class Player : MonoBehaviour
             MoveDown();
 
         }
-        else
-        {
-            //do nothing
-        }
 
     }
 

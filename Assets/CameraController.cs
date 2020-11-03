@@ -5,26 +5,24 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    public Player thePlayer;
+    public Player Player;
 
     private Vector3 lastPlayerPosition;
 
     private float distanceToMove;
 
-    // Start is called before the first frame update
     void Start()
     {
-        thePlayer = FindObjectOfType<Player>();
-        lastPlayerPosition = thePlayer.transform.position;
+        Player = FindObjectOfType<Player>();
+        lastPlayerPosition = Player.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        distanceToMove = thePlayer.transform.position.x - lastPlayerPosition.x;
+        distanceToMove = Player.transform.position.x - lastPlayerPosition.x;
 
         transform.position = new Vector3(transform.position.x + distanceToMove, transform.position.y, transform.position.z);
 
-        lastPlayerPosition = thePlayer.transform.position;
+        lastPlayerPosition = Player.transform.position;
     }
 }
