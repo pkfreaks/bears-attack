@@ -11,52 +11,42 @@ public class Player : MonoBehaviour
 
     private int positionIndex = 0;
 
+    Rigidbody2D rb;
+
     public void Start()
     {
         position = transform.position;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void Update()
     {
-        if (IsMoving())
-        {
-            MoveTowardsPosition();
-        }
-        else
-        {
-            CaptureControls();
-        }
-    }
 
-    private bool IsMoving() { return (Vector2)transform.position != position; }
-
-    private void MoveTowardsPosition() { transform.position = Vector2.MoveTowards(transform.position, position, speed * Time.deltaTime); }
-
-    private void CaptureControls()
-    {
-        if (ShouldMoveUp())
+        rb.velocity = new Vector2(speed / 100, 0);
+        if (Input.GetKeyDown(KeyCode.UpArrow) && positionIndex < 1)
         {
             MoveUp();
+
         }
-        else if (ShouldMoveDown())
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && positionIndex > -1)
         {
             MoveDown();
+
         }
+
     }
-
-    private bool ShouldMoveUp() { return Input.GetKeyDown(KeyCode.UpArrow) && positionIndex < 1; }
-
-    private bool ShouldMoveDown() { return Input.GetKeyDown(KeyCode.DownArrow) && positionIndex > -1; }
 
     private void MoveUp()
     {
         ++positionIndex;
         position = new Vector2(transform.position.x, transform.position.y + movement);
+        rb.MovePosition(position);
     }
 
     private void MoveDown()
     {
         --positionIndex;
         position = new Vector2(transform.position.x, transform.position.y - movement);
+        rb.MovePosition(position);
     }
 }
