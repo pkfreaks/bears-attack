@@ -5,26 +5,23 @@ using Mono.Data.Sqlite;
 using System.Data;
 using System;
 
-public class NewBehaviourScript : MonoBehaviour
+public class dbConn : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        string conn = "URI=file:" + Application.dataPath + "/PickAndPlaceDatabase.s3db"; //Path to database.
+        string conn = "URI=file:" + Application.dataPath + "/db/db.db"; //Path to database.
         IDbConnection dbconn;
         dbconn = (IDbConnection)new SqliteConnection(conn);
         dbconn.Open(); //Open connection to the database.
         IDbCommand dbcmd = dbconn.CreateCommand();
-        string sqlQuery = "SELECT value,name, randomSequence " + "FROM PlaceSequence";
+        string sqlQuery = "SELECT * FROM SCORES";
         dbcmd.CommandText = sqlQuery;
         IDataReader reader = dbcmd.ExecuteReader();
         while (reader.Read())
         {
             int value = reader.GetInt32(0);
-            string name = reader.GetString(1);
-            int rand = reader.GetInt32(2);
-
-            Debug.Log("value= " + value + "  name =" + name + "  random =" + rand);
+            int score = reader.GetInt32(1);
+            Debug.Log("id_score= " + value + "  score =" + score);
         }
         reader.Close();
         reader = null;
@@ -35,9 +32,4 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
