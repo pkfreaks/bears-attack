@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerFollower : MonoBehaviour
 {
 
-    public Player Player;
+    public Player player;
 
     private Vector3 lastPlayerPosition;
 
@@ -13,16 +13,16 @@ public class PlayerFollower : MonoBehaviour
 
     void Start()
     {
-        Player = FindObjectOfType<Player>();
-        lastPlayerPosition = Player.transform.position;
+        player = FindObjectOfType<Player>();
+        lastPlayerPosition = player.transform.position;
     }
 
     void Update()
     {
-        distanceToMove = Player.transform.position.x - lastPlayerPosition.x;
+        distanceToMove = player.transform.position.x - lastPlayerPosition.x;
 
         transform.position = new Vector3(transform.position.x + distanceToMove, transform.position.y, transform.position.z);
 
-        lastPlayerPosition = Player.transform.position;
+        lastPlayerPosition = player.transform.position;
     }
 }
