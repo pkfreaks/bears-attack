@@ -16,11 +16,9 @@ public class dbConn : MonoBehaviour
 
     public Transform scoreParent;
 
-    public void Start()
-    {
-    }
+    public int topRanks;
 
-    public void EnterRanking()
+    public void Start()
     {
         highScores.Clear();
 
@@ -29,6 +27,19 @@ public class dbConn : MonoBehaviour
         ShowScores();
     }
 
+    //Update ranking after click Ranking button - needed?
+    /*
+    public void EnterRanking()
+    {
+        highScores.Clear();
+
+        Debug.Log(highScores.Count);
+
+        conn = "URI=file:" + Application.dataPath + "/db/db.db";
+
+        ShowScores();
+    }
+    */
     public void ReadScores() 
     {
         
@@ -52,21 +63,25 @@ public class dbConn : MonoBehaviour
                 }
             }
         }
+        highScores.Sort();
     }
 
     private void ShowScores()
     {
         ReadScores();
-
-        for (int i = 0; i < highScores.Count; i++)
+        for (int i = 0; i < topRanks; i++)
         {
-            GameObject tmpObject = Instantiate(scorePrefab);
+            if (i <= highScores.Count - 1)
+            {
 
-            HighScore tmpScore = highScores[i];
+                GameObject tmpObject = Instantiate(scorePrefab);
 
-            tmpObject.GetComponent<HighScoreScript>().SetScore(tmpScore.Name, tmpScore.Score.ToString(), "#" + (i+1).ToString());
+                HighScore tmpScore = highScores[i];
 
-            tmpObject.transform.SetParent(scoreParent);
+                tmpObject.GetComponent<HighScoreScript>().SetScore(tmpScore.Name, tmpScore.Score.ToString(), "#" + (i + 1).ToString());
+
+                tmpObject.transform.SetParent(scoreParent);
+            }
         }
     }
 }
