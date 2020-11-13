@@ -61,13 +61,13 @@ public class dbConn : MonoBehaviour
             if (i <= highScores.Count - 1)
             {
 
-                GameObject tmpObject = Instantiate(scorePrefab);
+                GameObject scoreView = Instantiate(scorePrefab);
 
-                HighScore tmpScore = highScores[i];
+                HighScore currentScore = highScores[i];
 
-                tmpObject.GetComponent<HighScoreManager>().SetScore(tmpScore.Name, tmpScore.Score.ToString(), "#" + (i + 1).ToString());
+                scoreView.GetComponent<HighScoreManager>().SetScore(currentScore.Name, currentScore.Score.ToString(), "#" + (i + 1).ToString());
 
-                tmpObject.transform.SetParent(scoreParent);
+                scoreView.transform.SetParent(scoreParent);
             }
         }
     }
