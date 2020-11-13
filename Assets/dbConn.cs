@@ -27,20 +27,7 @@ public class dbConn : MonoBehaviour
         ShowScores();
     }
 
-    //Update ranking after click Ranking button - needed?
-    /*
-    public void EnterRanking()
-    {
-        highScores.Clear();
-
-        Debug.Log(highScores.Count);
-
-        conn = "URI=file:" + Application.dataPath + "/db/db.db";
-
-        ShowScores();
-    }
-    */
-    public void ReadScores() 
+    private void ReadScores() 
     {
         
         using (IDbConnection dbconn = new SqliteConnection(conn))
@@ -78,7 +65,7 @@ public class dbConn : MonoBehaviour
 
                 HighScore tmpScore = highScores[i];
 
-                tmpObject.GetComponent<HighScoreScript>().SetScore(tmpScore.Name, tmpScore.Score.ToString(), "#" + (i + 1).ToString());
+                tmpObject.GetComponent<HighScoreManager>().SetScore(tmpScore.Name, tmpScore.Score.ToString(), "#" + (i + 1).ToString());
 
                 tmpObject.transform.SetParent(scoreParent);
             }
