@@ -19,6 +19,9 @@ public class dbConn : MonoBehaviour
     public RawImage previewPlayerModel;
     public GameObject scorePrefab;
 
+    public List<Texture2D> textures;
+    private int texture = 0;
+
     public Transform scoreParent;
 
     public int topRanks;
@@ -36,20 +39,21 @@ public class dbConn : MonoBehaviour
 
     public void LoadPreviousAsset()
     {
-        var index = fetchedCharacters.IndexOf(currentCharacter) + 1;
-        index = index < 0 ? 0 : index;
+        texture -= 1;
+        if (texture < 0) { texture = textures.Count - 1; }
+        loadAsset();
+    }
 
-        var character = fetchedCharacters[index];
-        setCurrentActiveCharacter(character);
+    private void loadAsset()
+    {
+        previewPlayerModel.texture = textures[texture];
     }
 
     public void LoadNextAsset()
     {
-        var index = fetchedCharacters.IndexOf(currentCharacter) + 1;
-        index = index > fetchedCharacters.Count - 1 ? fetchedCharacters.Count - 1 : index;
-
-        var character = fetchedCharacters[index];
-        setCurrentActiveCharacter(character);
+        texture += 1;
+        if (texture >= textures.Count) { texture = 0 ; }
+        loadAsset();
     }
 
     private void ReadScores() 
@@ -130,6 +134,7 @@ public class dbConn : MonoBehaviour
     private void setCurrentActiveCharacter(Character character)
     {
         var filePath = Application.dataPath + "Assets/Images/Player models/" + character.Name + ".png";
+        Texture2D t = Resources.Load<Texture2D>("Images/Player models/" + character.Name + ".png");
 
         if (File.Exists(filePath))
         {

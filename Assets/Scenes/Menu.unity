@@ -1013,16 +1013,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689101664}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1530827345}
-  m_RootOrder: 5
+  m_Father: {fileID: 1817808941}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -150, y: 0}
   m_SizeDelta: {x: 175, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &689101666
@@ -1722,6 +1722,7 @@ MonoBehaviour:
   previewPlayerModel: {fileID: 0}
   scorePrefab: {fileID: 1408636673887706897, guid: 2cbef0d20d1d170499be5e7af7b0098f,
     type: 3}
+  textures: []
   scoreParent: {fileID: 208377717}
   topRanks: 0
 --- !u!1 &1051516260
@@ -2200,7 +2201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1530827345
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2217,7 +2218,6 @@ RectTransform:
   - {fileID: 1857091508}
   - {fileID: 1597651708}
   - {fileID: 1817808941}
-  - {fileID: 689101665}
   m_Father: {fileID: 372883469}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2241,6 +2241,7 @@ MonoBehaviour:
   playerModel: {fileID: 0}
   previewPlayerModel: {fileID: 689101666}
   scorePrefab: {fileID: 0}
+  textures: []
   scoreParent: {fileID: 0}
   topRanks: 0
 --- !u!114 &1530827347
@@ -2423,6 +2424,7 @@ MonoBehaviour:
   playerModel: {fileID: 0}
   previewPlayerModel: {fileID: 0}
   scorePrefab: {fileID: 0}
+  textures: []
   scoreParent: {fileID: 0}
   topRanks: 0
 --- !u!1 &1615601966
@@ -2839,6 +2841,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 751542062}
+  - {fileID: 689101665}
   m_Father: {fileID: 1530827345}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2951,8 +2954,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerModel: {fileID: 0}
-  previewPlayerModel: {fileID: 0}
+  previewPlayerModel: {fileID: 689101666}
   scorePrefab: {fileID: 0}
+  textures:
+  - {fileID: 2800000, guid: cebe01dd3df964c4e811b2810327fd9f, type: 3}
+  - {fileID: 2800000, guid: d20b6e9370c8c2347a2c5b4e7cf4e4aa, type: 3}
+  - {fileID: 2800000, guid: 5909718ca791cb443b5ca6805e9ba604, type: 3}
+  - {fileID: 2800000, guid: e3a422f694e2d03498a2f6c89056f090, type: 3}
+  - {fileID: 2800000, guid: ff66371b29e4ccd4f86c45a9c42570fd, type: 3}
   scoreParent: {fileID: 0}
   topRanks: 0
 --- !u!1 &1828406330
@@ -3267,7 +3276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2033066564
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3355,5 +3364,6 @@ MonoBehaviour:
   previewPlayerModel: {fileID: 0}
   scorePrefab: {fileID: 1408636673887706897, guid: 2cbef0d20d1d170499be5e7af7b0098f,
     type: 3}
+  textures: []
   scoreParent: {fileID: 208377717}
   topRanks: 10
