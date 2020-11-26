@@ -946,10 +946,10 @@ RectTransform:
   m_Father: {fileID: 2033066564}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 184.9}
-  m_SizeDelta: {x: 36.32019, y: 33.926846}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -228, y: 500}
+  m_SizeDelta: {x: 36.32019, y: 33.92685}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &628774252
 MonoBehaviour:
@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 689101667}
   - component: {fileID: 689101666}
   m_Layer: 5
-  m_Name: Style
+  m_Name: Preview Player Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,7 +1412,7 @@ GameObject:
   - component: {fileID: 922228903}
   - component: {fileID: 922228902}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Main Player Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1718,6 +1718,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1959a94081f37f44ba4621300ab9a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerModel: {fileID: 0}
+  previewPlayerModel: {fileID: 0}
   scorePrefab: {fileID: 1408636673887706897, guid: 2cbef0d20d1d170499be5e7af7b0098f,
     type: 3}
   scoreParent: {fileID: 208377717}
@@ -2191,6 +2193,7 @@ GameObject:
   - component: {fileID: 1530827345}
   - component: {fileID: 1530827348}
   - component: {fileID: 1530827347}
+  - component: {fileID: 1530827346}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -2223,6 +2226,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1530827346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530827344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1959a94081f37f44ba4621300ab9a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerModel: {fileID: 0}
+  previewPlayerModel: {fileID: 689101666}
+  scorePrefab: {fileID: 0}
+  scoreParent: {fileID: 0}
+  topRanks: 0
 --- !u!114 &1530827347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,6 +2289,7 @@ GameObject:
   - component: {fileID: 1597651711}
   - component: {fileID: 1597651710}
   - component: {fileID: 1597651709}
+  - component: {fileID: 1597651712}
   m_Layer: 5
   m_Name: Left Button
   m_TagString: Untagged
@@ -2338,7 +2359,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1597651710}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1597651712}
+        m_MethodName: LoadPreviousAsset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1597651710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2376,6 +2408,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597651707}
   m_CullTransparentMesh: 0
+--- !u!114 &1597651712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597651707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1959a94081f37f44ba4621300ab9a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerModel: {fileID: 0}
+  previewPlayerModel: {fileID: 0}
+  scorePrefab: {fileID: 0}
+  scoreParent: {fileID: 0}
+  topRanks: 0
 --- !u!1 &1615601966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,6 +2819,7 @@ GameObject:
   - component: {fileID: 1817808944}
   - component: {fileID: 1817808943}
   - component: {fileID: 1817808942}
+  - component: {fileID: 1817808945}
   m_Layer: 5
   m_Name: Right Button
   m_TagString: Untagged
@@ -2839,7 +2889,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1817808943}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1817808945}
+        m_MethodName: LoadNextAsset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1817808943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2877,6 +2938,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817808940}
   m_CullTransparentMesh: 0
+--- !u!114 &1817808945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817808940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1959a94081f37f44ba4621300ab9a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerModel: {fileID: 0}
+  previewPlayerModel: {fileID: 0}
+  scorePrefab: {fileID: 0}
+  scoreParent: {fileID: 0}
+  topRanks: 0
 --- !u!1 &1828406330
 GameObject:
   m_ObjectHideFlags: 0
@@ -3124,10 +3202,10 @@ RectTransform:
   m_Father: {fileID: 2033066564}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 182.18}
-  m_SizeDelta: {x: 65.92154, y: 23.56784}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -278, y: 500}
+  m_SizeDelta: {x: 65.92151, y: 23.56784}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1893622875
 MonoBehaviour:
@@ -3273,6 +3351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1959a94081f37f44ba4621300ab9a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerModel: {fileID: 0}
+  previewPlayerModel: {fileID: 0}
   scorePrefab: {fileID: 1408636673887706897, guid: 2cbef0d20d1d170499be5e7af7b0098f,
     type: 3}
   scoreParent: {fileID: 208377717}
