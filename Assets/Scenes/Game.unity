@@ -1032,6 +1032,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   livesText: {fileID: 0}
   canvasGameOver: {fileID: 130367782}
+  playerModel: {fileID: 869245445}
 --- !u!70 &869245450
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

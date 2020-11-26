@@ -20,7 +20,7 @@ public class dbConn : MonoBehaviour
     public GameObject scorePrefab;
 
     public List<Texture2D> textures;
-    private int texture = 0;
+    public static int currentTexture = 0;
 
     public Transform scoreParent;
 
@@ -34,25 +34,25 @@ public class dbConn : MonoBehaviour
 
         ShowScores();
         fetchCharacters();
-        setCurrentActiveCharacter(currentCharacter);
     }
 
     public void LoadPreviousAsset()
     {
-        texture -= 1;
-        if (texture < 0) { texture = textures.Count - 1; }
+        dbConn.currentTexture -= 1;
+        if (dbConn.currentTexture <= 0) { dbConn.currentTexture = textures.Count - 1; }
         loadAsset();
     }
 
     private void loadAsset()
     {
-        previewPlayerModel.texture = textures[texture];
+        Debug.Log(dbConn.currentTexture);
+        previewPlayerModel.texture = textures[dbConn.currentTexture];
     }
 
     public void LoadNextAsset()
     {
-        texture += 1;
-        if (texture >= textures.Count) { texture = 0 ; }
+        dbConn.currentTexture += 1;
+        if (dbConn.currentTexture >= textures.Count) { dbConn.currentTexture = 0 ; }
         loadAsset();
     }
 
@@ -127,30 +127,6 @@ public class dbConn : MonoBehaviour
                     dbconn.Close();
                     reader.Close();
                 }
-            }
-        }
-    }
-
-    private void setCurrentActiveCharacter(Character character)
-    {
-        var filePath = Application.dataPath + "Assets/Images/Player models/" + character.Name + ".png";
-        Texture2D t = Resources.Load<Texture2D>("Images/Player models/" + character.Name + ".png");
-
-        if (File.Exists(filePath))
-        {
-            Texture2D tex2D;
-            byte[] FileData;
-
-            FileData = File.ReadAllBytes(filePath);
-            tex2D = new Texture2D(2, 2);
-
-            if (tex2D.LoadImage(FileData))
-            {
-                playerModel = GameObject.Find("Main Player Image").GetComponent<RawImage>();
-                previewPlayerModel = GameObject.Find("Preview Player Image").GetComponent<RawImage>();
-
-                playerModel.texture = tex2D;
-                previewPlayerModel.texture = tex2D;
             }
         }
     }

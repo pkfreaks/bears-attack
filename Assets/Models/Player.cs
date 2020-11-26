@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public float timer = 0;
     public Text scoreText;
     public Text livesText;
+    public SpriteRenderer playerModel;
 
     public GameObject canvasGameOver;
 
@@ -25,7 +26,9 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
+        playerModel = GameObject.Find("Player").GetComponent<SpriteRenderer>();
         DisplayLives();
+
         position = transform.position;
         rb = GetComponent<Rigidbody2D>();
         canvasGameOver.SetActive(false);
