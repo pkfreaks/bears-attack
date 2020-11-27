@@ -20,7 +20,7 @@ public class dbConn : MonoBehaviour
     public GameObject scorePrefab;
 
     public List<Texture2D> textures;
-    public static int currentTexture = 0;
+    private int currentTexture = 0;
 
     public Transform scoreParent;
 
@@ -38,21 +38,21 @@ public class dbConn : MonoBehaviour
 
     public void LoadPreviousAsset()
     {
-        dbConn.currentTexture -= 1;
-        if (dbConn.currentTexture <= 0) { dbConn.currentTexture = textures.Count - 1; }
+        currentTexture -= 1;
+        if (currentTexture < 0) { currentTexture = textures.Count - 1; }
         loadAsset();
     }
 
     private void loadAsset()
     {
-        Debug.Log(dbConn.currentTexture);
-        previewPlayerModel.texture = textures[dbConn.currentTexture];
+        Debug.Log(currentTexture);
+        previewPlayerModel.texture = textures[currentTexture];
     }
 
     public void LoadNextAsset()
     {
-        dbConn.currentTexture += 1;
-        if (dbConn.currentTexture >= textures.Count) { dbConn.currentTexture = 0 ; }
+        currentTexture += 1;
+        if (currentTexture >= textures.Count) { currentTexture = 0 ; }
         loadAsset();
     }
 
