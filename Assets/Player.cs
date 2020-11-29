@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
-     
+        speed += 0.01f;
         timer += Time.deltaTime;
         Debug.Log(timer);
         if (timer >= 2)
