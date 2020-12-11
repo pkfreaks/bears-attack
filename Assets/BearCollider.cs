@@ -11,7 +11,7 @@ public class BearCollider : MonoBehaviour
     {
         if (collision.CompareTag(playerTag))
         {
-            // TODO: inflict damage to a player
+            new Damage().Inflict(collision);
             Destroy(gameObject);
             Debug.Log("Detected collision with a bear");
         }

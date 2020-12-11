@@ -22,11 +22,15 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        livesText = GameObject.Find("Lives").GetComponent<Text>();
-        livesText.text = "" + lives;
-
+        DisplayLives();
         position = transform.position;
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void DisplayLives()
+    {
+        livesText = GameObject.Find("Lives").GetComponent<Text>();
+        livesText.text = "" + lives;
     }
 
     public void Update()
@@ -68,5 +72,15 @@ public class Player : MonoBehaviour
         --positionIndex;
         position = new Vector2(transform.position.x, transform.position.y - movement);
         rb.MovePosition(position);
+    }
+
+    public void InflictDamage(int damage)
+    {
+        lives -= damage;
+        if (lives < 0) 
+        {
+            lives = 0;
+        }
+        DisplayLives();
     }
 }
