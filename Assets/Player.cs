@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
 
         }
 
-        EndGame();
+        TryEndGame();
     }
 
     private void MoveUp()
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
         DisplayLives();
     }
 
-    private void EndGame()
+    private void TryEndGame()
     {
         if (lives == 0)
         {
