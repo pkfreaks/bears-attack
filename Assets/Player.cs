@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour
     public Text scoreText;
     public Text livesText;
 
+    public GameObject canvasGameOver;
+
     private int positionIndex = 0;
 
     Rigidbody2D rb;
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
         DisplayLives();
         position = transform.position;
         rb = GetComponent<Rigidbody2D>();
+        canvasGameOver.SetActive(false);
     }
 
     private void DisplayLives()
@@ -58,6 +62,8 @@ public class Player : MonoBehaviour
             MoveDown();
 
         }
+
+        EndGame();
     }
 
     private void MoveUp()
@@ -82,5 +88,35 @@ public class Player : MonoBehaviour
             lives = 0;
         }
         DisplayLives();
+    }
+
+    private void EndGame()
+    {
+        if (lives == 0)
+        {
+            speed = 0;
+            timer = 0;
+            canvasGameOver.SetActive(true);
+        }
+    }
+
+    public void LoadMenu()
+    {
+        canvasGameOver.SetActive(false);
+        collectedScore = 0;
+        lives = 5;
+        movement = 4.0f;
+        speed = 50.0f;
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void RestartGame()
+    {
+        canvasGameOver.SetActive(false);
+        collectedScore = 0;
+        lives = 5;
+        movement = 4.0f;
+        speed = 50.0f;
+        SceneManager.LoadScene("Game");
     }
 }
