@@ -7,26 +7,26 @@ public class Character : IComparable<Character>
 {
     public int ID { get; set; }
     public string Name { get; set; }
-    public bool isUnlocked { get; set; }
-    public bool isActive { get; set; }
-    public int price { get; set; }
+    public bool Unlocked { get; set; }
+    public bool Active { get; set; }
+    public int Price { get; set; }
 
-    public Character(int id, string name, int isUnlocked, int isActive, int price)
+    public Character(int id, string name, bool unlocked, bool active, int price)
     {
         this.ID = id;
         this.Name = name;
-        this.isUnlocked = Convert.ToBoolean(isUnlocked);
-        this.isActive = Convert.ToBoolean(isActive);
-        this.price = price;
+        this.Unlocked = unlocked;
+        this.Active = active;
+        this.Price = price;
     }
 
     public int CompareTo(Character other)
     {
-        if (other.price < this.price)
+        if (other.Price < this.Price)
         {
             return -1;
         }
-        else if (other.price > this.price)
+        else if (other.Price > this.Price)
         {
             return 1;
         }

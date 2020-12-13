@@ -896,6 +896,7 @@ GameObject:
   - component: {fileID: 869245447}
   - component: {fileID: 869245449}
   - component: {fileID: 869245450}
+  - component: {fileID: 869245451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1031,8 +1032,8 @@ MonoBehaviour:
   timer: 0
   scoreText: {fileID: 0}
   livesText: {fileID: 0}
-  canvasGameOver: {fileID: 130367782}
   playerModel: {fileID: 869245445}
+  canvasGameOver: {fileID: 130367782}
 --- !u!70 &869245450
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1049,6 +1050,25 @@ CapsuleCollider2D:
   m_Offset: {x: -0.012755871, y: -0.07073116}
   m_Size: {x: 0.8228235, y: 2.4450898}
   m_Direction: 0
+--- !u!114 &869245451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869245444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97963f1f542b7b34ea722cd2ba5226fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTextures:
+  - {fileID: 2800000, guid: cebe01dd3df964c4e811b2810327fd9f, type: 3}
+  - {fileID: 2800000, guid: d20b6e9370c8c2347a2c5b4e7cf4e4aa, type: 3}
+  - {fileID: 2800000, guid: 5909718ca791cb443b5ca6805e9ba604, type: 3}
+  - {fileID: 2800000, guid: e3a422f694e2d03498a2f6c89056f090, type: 3}
+  - {fileID: 2800000, guid: ff66371b29e4ccd4f86c45a9c42570fd, type: 3}
+  selected: 0
 --- !u!1 &941881001
 GameObject:
   m_ObjectHideFlags: 0

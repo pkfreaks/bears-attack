@@ -33,7 +33,6 @@ public class dbConn : MonoBehaviour
         conn = "URI=file:" + Application.dataPath + "/db/db.db";
 
         ShowScores();
-        fetchCharacters();
     }
 
     public void LoadPreviousAsset()
@@ -97,36 +96,6 @@ public class dbConn : MonoBehaviour
                 scoreView.GetComponent<HighScoreManager>().SetScore(currentScore.Name, currentScore.Score.ToString(), "#" + (i + 1).ToString());
 
                 scoreView.transform.SetParent(scoreParent);
-            }
-        }
-    }
-
-    private void fetchCharacters()
-    {
-        using (IDbConnection dbconn = new SqliteConnection(conn))
-        {
-            dbconn.Open();
-
-            using (IDbCommand dbcmd = dbconn.CreateCommand())
-            {
-                string sqlQuery = "SELECT * FROM Character";
-                dbcmd.CommandText = sqlQuery;
-
-                using (IDataReader reader = dbcmd.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        var character = new Character(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(3));
-
-                        if (character.isActive && character.isUnlocked) {
-                            currentCharacter = character;
-                        }
-
-                        fetchedCharacters.Add(character);
-                    }
-                    dbconn.Close();
-                    reader.Close();
-                }
             }
         }
     }
