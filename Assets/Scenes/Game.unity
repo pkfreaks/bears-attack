@@ -178,12 +178,12 @@ SpriteRenderer:
   m_SortingLayerID: -883183131
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7898c2b486cc9b74ebdcc1ac6303d615, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8b2b80a883acaf4e984192815d8c4ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6, y: 4}
+  m_Size: {x: 12.8, y: 7.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -241,8 +241,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122116369}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -128.5, y: 196.19998, z: -2156.0186}
-  m_LocalScale: {x: 8.921436, y: 9.851392, z: 23.955763}
+  m_LocalPosition: {x: -135, y: 195, z: -2156.0186}
+  m_LocalScale: {x: 13, y: 13, z: 23}
   m_Children: []
   m_Father: {fileID: 2132411807}
   m_RootOrder: 5
@@ -291,7 +291,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.2, y: 7.2}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -655,8 +655,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537222494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.499992, y: 196.19998, z: -2156.0186}
-  m_LocalScale: {x: 23.955763, y: 23.955763, z: 23.955763}
+  m_LocalPosition: {x: 49.499992, y: 195, z: -2156.0186}
+  m_LocalScale: {x: 4, y: 4, z: 10}
   m_Children: []
   m_Father: {fileID: 2132411807}
   m_RootOrder: 0
@@ -705,7 +705,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.6, y: 3.6}
+  m_Size: {x: 10.24, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -896,6 +896,7 @@ GameObject:
   - component: {fileID: 869245447}
   - component: {fileID: 869245449}
   - component: {fileID: 869245450}
+  - component: {fileID: 869245451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1031,6 +1032,7 @@ MonoBehaviour:
   timer: 0
   scoreText: {fileID: 0}
   livesText: {fileID: 0}
+  playerModel: {fileID: 869245445}
   canvasGameOver: {fileID: 130367782}
 --- !u!70 &869245450
 CapsuleCollider2D:
@@ -1048,6 +1050,25 @@ CapsuleCollider2D:
   m_Offset: {x: -0.012755871, y: -0.07073116}
   m_Size: {x: 0.8228235, y: 2.4450898}
   m_Direction: 0
+--- !u!114 &869245451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869245444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97963f1f542b7b34ea722cd2ba5226fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTextures:
+  - {fileID: 2800000, guid: cebe01dd3df964c4e811b2810327fd9f, type: 3}
+  - {fileID: 2800000, guid: d20b6e9370c8c2347a2c5b4e7cf4e4aa, type: 3}
+  - {fileID: 2800000, guid: 5909718ca791cb443b5ca6805e9ba604, type: 3}
+  - {fileID: 2800000, guid: e3a422f694e2d03498a2f6c89056f090, type: 3}
+  - {fileID: 2800000, guid: ff66371b29e4ccd4f86c45a9c42570fd, type: 3}
+  selected: 0
 --- !u!1 &941881001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,7 +1652,7 @@ Transform:
   m_GameObject: {fileID: 1838106541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 213.5, y: 196.19998, z: -2156.0186}
-  m_LocalScale: {x: 41.560047, y: 34.958447, z: 23.955763}
+  m_LocalScale: {x: 30, y: 30, z: 23.955763}
   m_Children: []
   m_Father: {fileID: 2132411807}
   m_RootOrder: 4

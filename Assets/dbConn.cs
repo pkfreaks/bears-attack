@@ -5,14 +5,16 @@ using Mono.Data.Sqlite;
 using System.Data;
 using System;
 using UnityEngine.UI;
+using System.IO;
 
 public class dbConn : MonoBehaviour
 {
     private string conn;
 
     private List<HighScore> highScores = new List<HighScore>();
-
     public GameObject scorePrefab;
+
+    public List<Texture2D> textures;
 
     public Transform scoreParent;
 
