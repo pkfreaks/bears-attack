@@ -34,8 +34,7 @@ public class Player : MonoBehaviour
 
         position = transform.position;
         rb = GetComponent<Rigidbody2D>();
-        int a = 0;
-        a += 1;
+        canvasGameOver.SetActive(false);
     }
 
     private void DisplayLives()
