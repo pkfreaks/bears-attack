@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DatabaseConnector 
 {
-    public static readonly string ConnectionString = "URI=file:" + Application.dataPath + "/db/db.db";
+    public static readonly string ConnectionString = "URI=file:" + Application.dataPath + "/Database/Database.db";
 
     public IList<Character> LoadCharacters()
     {
