@@ -12,15 +12,9 @@ public class dbConn : MonoBehaviour
     private string conn;
 
     private List<HighScore> highScores = new List<HighScore>();
-    private List<Character> fetchedCharacters = new List<Character>();
-    private Character currentCharacter;
-
-    public RawImage playerModel;
-    public RawImage previewPlayerModel;
     public GameObject scorePrefab;
 
     public List<Texture2D> textures;
-    private int currentTexture = 0;
 
     public Transform scoreParent;
 
@@ -33,26 +27,6 @@ public class dbConn : MonoBehaviour
         conn = "URI=file:" + Application.dataPath + "/db/db.db";
 
         ShowScores();
-    }
-
-    public void LoadPreviousAsset()
-    {
-        currentTexture -= 1;
-        if (currentTexture < 0) { currentTexture = textures.Count - 1; }
-        loadAsset();
-    }
-
-    private void loadAsset()
-    {
-        Debug.Log(currentTexture);
-        previewPlayerModel.texture = textures[currentTexture];
-    }
-
-    public void LoadNextAsset()
-    {
-        currentTexture += 1;
-        if (currentTexture >= textures.Count) { currentTexture = 0 ; }
-        loadAsset();
     }
 
     private void ReadScores() 
